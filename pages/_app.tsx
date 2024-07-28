@@ -1,6 +1,20 @@
+import React from "react";
+import Keyboard from "../components/Keyboard";
+import Output from "../components/OutputArea";
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { KeyboardProvider } from "../helpers/KeyboardContext"; // Import the KeyboardProvider
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const App = () => {
+  return (
+    <KeyboardProvider>
+      {" "}
+      {/* Wrap the App component with KeyboardProvider */}
+      <div className="app">
+        <Keyboard />
+        <Output />
+      </div>
+    </KeyboardProvider>
+  );
+};
+
+export default App;
