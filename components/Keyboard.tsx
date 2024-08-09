@@ -11,7 +11,11 @@ const Keyboard = () => {
   const { values, setValues } = keyboardContext;
 
   const handleKeyPress = (value: string) => {
-    setValues([...values, value]);
+    if (value === "Backspace") {
+      setValues(values.slice(0, -1));
+    } else {
+      setValues([...values, value]);
+    }
   };
 
   return (
