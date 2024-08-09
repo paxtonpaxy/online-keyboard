@@ -215,7 +215,7 @@ const Keyboard = () => {
           </button>
           <button
             className="spacebar-key"
-            onClick={() => handleKeyPress("Spacebar")}
+            onClick={() => handleKeyPress(`${" "}`)}
           >
             Spacebar
           </button>
