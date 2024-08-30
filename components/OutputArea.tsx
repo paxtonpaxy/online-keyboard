@@ -12,8 +12,16 @@ const OutputArea = () => {
 
   return (
     <div className="output">
-      <h2>Output</h2>
-      <div className="w-80 bg-slate-500">{values.join(" ")}</div>
+      <h2>Your text:</h2>
+      <div>
+        <textarea
+          className="output-text"
+          placeholder="Your text will appear here"
+          value={values.join("")}
+          readOnly
+        ></textarea>
+        <div className="output-area"></div>
+      </div>
     </div>
   );
 };

@@ -10,9 +10,17 @@ const Keyboard = () => {
 
   const { values, setValues } = keyboardContext;
 
-  const handleKeyPress = (value: string) => {
+  const handleRemoval = (value: string) => {
     if (value === "Backspace") {
       setValues(values.slice(0, -1));
+    } else if (value === "del-all") {
+      setValues([]);
+    }
+  };
+
+  const handleKeyPress = (value: string) => {
+    if (value === "Enter") {
+      setValues([...values, "\n"]);
     } else {
       setValues([...values, value]);
     }
@@ -22,8 +30,8 @@ const Keyboard = () => {
     <div className="keyboard">
       <div className="keyboard-main">
         <div className="row">
-          <button className="key" onClick={() => handleKeyPress("` ~")}>
-            ` ~
+          <button className="key" onClick={() => handleKeyPress("`")}>
+            `
           </button>
           <button className="key" onClick={() => handleKeyPress("1")}>
             1
@@ -63,7 +71,7 @@ const Keyboard = () => {
           </button>
           <button
             className="wide-key"
-            onClick={() => handleKeyPress("Backspace")}
+            onClick={() => handleRemoval("Backspace")}
           >
             Backspace
           </button>
@@ -110,6 +118,9 @@ const Keyboard = () => {
           </button>
           <button className="key" onClick={() => handleKeyPress("|")}>
             \
+          </button>
+          <button className="key" onClick={() => handleRemoval("del-all")}>
+            DEL
           </button>
         </div>
         <div className="row">
